@@ -2,7 +2,11 @@ package Assignment;
 
 public class Encoded {
     //test test hashimi
+
     public static void main (String[] args){
-        System.out.println("hohoho");
+
+        for (int i = 0; i < 10; i++){
+             System.out.println("hohoho");
+        }
 }
 }
