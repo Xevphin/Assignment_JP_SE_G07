@@ -1,0 +1,18 @@
+# Ignore compiled Java files
+*.class
+
+# Ignore Log files
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore VS Code specific folders
+.vscode/
+bin/
+out/
+
+# Ignore archive files
+*.jar
+*.war
