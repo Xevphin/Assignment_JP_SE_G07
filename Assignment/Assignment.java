@@ -16,8 +16,10 @@ class Encoded{
     public Encoded() {}
     //Sets the input text and performs counting, shifting, and encoding
     //This avoids method calls inside constructor (warning)
-
-    public void Encoded(String inputText) {
+    
+    //CONTRIBUTED BY WAN ADAM
+    //Overloaded constructor to set input text and process the encoding steps
+    public Encoded(String inputText) {
         this.inputText = inputText;
         this.charCount = countCharacters();
         int finalShift = calculateFinalShift();
@@ -111,6 +113,10 @@ public class Assignment {
         //Label to display the final calceulated shift
         JLabel shiftLabel = new JLabel("Final Shift: ");
 
+        //CONTRIBUTED BY WAN ADAM
+        //Label to display the number of non space characters as required
+        JLabel charCountLabel = new JLabel("Non-Space Characters: ");
+
         //Panel to hold and organize UI components
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -126,6 +132,10 @@ public class Assignment {
         panel.add(new JScrollPane(resultArea));
         panel.add(Box.createVerticalStrut(10));
         panel.add(shiftLabel);
+
+        //CONTRIBUTED BY WAN ADAM
+        panel.add(Box.createVerticalStrut(10));
+        panel.add(charCountLabel);
 
         frame.getContentPane().add(panel);
         frame.setVisible(true);
@@ -144,11 +154,17 @@ public class Assignment {
                         "Input Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
-            //Process input using overloaded constructor
-            encoder.Encoded(input); // Process input
+            //CONTRIBUTED BY WAN ADAM
+            //Process input using the corrected overloaded constructor
+            encoder = new Encoded(input);
             resultArea.setText(encoder.getResultText());
             shiftLabel.setText("Final Shift: " + encoder.getFinalShift());
+            //Update UI with non-space character count
+            charCountLabel.setText("Non-space Characters: " + encoder.getCharCount());
+            //Show success message
+            JOptionPane.showMessageDialog(frame,
+                    "Encoding completed successfully!",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
         });
     }
 }
