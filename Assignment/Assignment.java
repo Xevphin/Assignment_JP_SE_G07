@@ -5,7 +5,7 @@ package Assignment;
 //CONTRIBUTED BY NISA//
 import javax.swing.*;
 
-class Encoded{
+class Assignment{
 
     private String inputText;
     private int charCount;
@@ -13,11 +13,11 @@ class Encoded{
     private final String groupID = "G05/SE-G07"; // Hardcoded secret key
 
     // Default constructor
-    public Encoded() {}
+    public Assignment() {}
     //Sets the input text and performs counting, shifting, and encoding
     //This avoids method calls inside constructor (warning)
 
-    public void Encoded(String inputText) {
+    public Assignment(String inputText) {
         this.inputText = inputText;
         this.charCount = countCharacters();
         int finalShift = calculateFinalShift();
@@ -133,7 +133,7 @@ public class Assignment {
         // Button click logic
         encodeButton.addActionListener(e -> {
             String input = inputField.getText().trim();
-            Encoded encoder = new Encoded();
+            Assignment encoder = new Assignment();
 
             //Validate input format
             if (!encoder.checkStringValidity(input)) {
@@ -146,7 +146,7 @@ public class Assignment {
             }
 
             //Process input using overloaded constructor
-            encoder.Encoded(input); // Process input
+            encoder.Assignment(input); // Process input
             resultArea.setText(encoder.getResultText());
             shiftLabel.setText("Final Shift: " + encoder.getFinalShift());
         });
